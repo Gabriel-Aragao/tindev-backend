@@ -3,7 +3,6 @@ const Dev = require('../model/Dev');
 
 module.exports = {
   async store (req, res) {
-    // BUG promisses com mongoose
     const username = req.body.username;
 
     const userexists = await Dev.findOne({ user: username });
