@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
@@ -10,12 +11,8 @@ mongoose.connect('mongodb+srv://dba_tindev:SonOfAnton@omnistack8-dodzy.gcp.mongo
   useUnifiedTopology: true
 });
 
-server.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
-server.use(bodyParser.json());
+server.use(cors());
+server.use(express.json());
 server.use(routes);
 
 server.listen(3333);
